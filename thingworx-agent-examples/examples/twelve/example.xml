@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Root>
+  <Configuration>
+    <PowerLevel>100.0</PowerLevel>
+    <PumpPressure>20.0</PumpPressure>
+    <ErrorStatus>No Errors</ErrorStatus>
+  </Configuration>
+</Root>

@@ -1,0 +1,10 @@
+{
+	"connection": {
+		"host": "10.0.0.173",
+		"port": 80,
+		"app_key": "79d9df57-3558-4afd-8016-6c57a94dc9dd"
+	},
+	"tls": {
+		"encryption" : false
+	}
+}

@@ -1,0 +1,49 @@
+﻿// Example #3 - Thing with Property
+var Api = require('thingworx-api').Api;				// Thingworx API 
+var Thing = require('thingworx-api').Thing;			// Thingworx Virtual Thing
+var logger = require('thingworx-utils').Logger;		// Thingworx Logging Utility
+
+// Create a new API object
+var api = new Api({
+	connection: {
+		host: '127.0.0.1',
+		port: '8080',
+		app_key: 'b84b67c9-55c7-4ae9-8d5b-6d29c98f749d'
+	},
+	tls: {
+		encryption : false
+	}
+});
+
+// Initailize the API
+api.initialize();
+
+// Write some data to the log
+logger.info('Running Example #3: Basic Thing with Property');
+
+// Create a new thing called 'DemoThing3'
+var thing = new Thing('DemoThing3');
+
+// Add a new property to the Thing
+thing.addProperty({
+	name: 'ExampleString',
+	type: 'string',
+	value: 'Hello from the Edge!'
+});
+
+// Bind the thing
+thing.bind();
+
+// Connect to Thingworx
+api.connect();
+
+// When connected to Thingworx, log a message to the console
+api.on('connect', function () {
+	console.log("Connected to Thingworx with Thing '%s'", thing.name);
+	var property = thing.getProperty('ExampleString');
+	console.log("Property '%s' has a value of '%s'", property.name, property.value);
+	
+	property.on('change', function () {
+		logger.info("Property '%s' has a value of '%s'", property.name, property.value);
+	});
+});

@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>NodeJS Agent Log Monitor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 13px Helvetica, Arial;
+        }
+
+        form {
+            background: #000;
+            padding: 3px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+            form button {
+                width: 10%;
+                background: rgb(96, 185, 70);
+                border: none;
+                padding: 10px;
+                margin: auto;
+            }
+
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            #messages li {
+                padding: 5px 10px;
+            }
+
+                #messages li:nth-child(odd) {
+                    background: #eee;
+                }
+    </style>
+</head>
+<body>
+    <ul id="messages"></ul>
+    <form action="">
+        <button>Start Agent</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        var socket = io();
+
+        $('form').submit(function () {
+            socket.emit('run agent');
+        });
+
+        socket.on('message', function (obj) {
+            $('#messages').append($('<li>').text('[' + obj.level + '] ' + obj.timestamp + ': ' + obj.message));
+        });
+
+    </script>
+</body>
+</html>

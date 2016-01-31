@@ -1,0 +1,14 @@
+{
+  "name": "thingworx-driver",
+  "version": "0.0.1",
+  "description": "thingworx-driver",
+  "main": "app.js",
+  "author": {
+    "name": "aaugot",
+    "email": "alexander.augot@thingworx.com"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "private": true
+}
