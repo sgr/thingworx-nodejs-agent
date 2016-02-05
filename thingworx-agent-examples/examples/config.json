@@ -1,8 +1,8 @@
 {
 	"connection": {
-		"host": "10.0.0.173",
+		"host": "YOUR_PLATFORM_IP_ADDRESS_HERE",
 		"port": 80,
-		"app_key": "79d9df57-3558-4afd-8016-6c57a94dc9dd"
+		"app_key": "YOUR_APP_KEY_HERE"
 	},
 	"tls": {
 		"encryption" : false
