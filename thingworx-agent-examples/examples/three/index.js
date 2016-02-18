@@ -29,8 +29,8 @@ var exampleThing = new Thing('HomeLight0');
 // Add a new property to exampleThing; start with OFF; later, set it to ON
 exampleThing.addProperty({
     	name: 'LightStatus',
-    	type: ‘string',
-    	value: ‘OFF’
+    	type: 'string',
+    	value: 'OFF'
 });
 
 // Bind the thing
