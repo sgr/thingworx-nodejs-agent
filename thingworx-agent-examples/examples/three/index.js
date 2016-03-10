@@ -13,6 +13,9 @@ var Api = require('thingworx-api').Api;
 // Thingworx Thing API interface
 var Thing = require('thingworx-api').Thing
 
+// Thingworx Property Monitor
+var PropertyMonitor = require('./lib/property-monitor.js');
+
 // Connection configuration
 var config = require('../config.json');
 
@@ -24,14 +27,30 @@ var api = new Api(config);
 api.initialize();
 
 // Create a new thing
-var exampleThing = new Thing('HomeLight0');
+var exampleThing = new Thing('TestThing2');
 
-// Add a new property to exampleThing; start with OFF; later, set it to ON
-exampleThing.addProperty({
-    	name: 'LightStatus',
-    	type: 'string',
-    	value: 'OFF'
-});
+// List of properties implemmented by exampleThing
+var properties = {
+	LightStatus: 'string',
+	LightLocation: 'location'
+};
+
+// Add all properties to exampleThing
+for (key in properties) {
+	exampleThing.addProperty({
+		name: key,
+		type: properties[key]
+	});
+}
+
+var dataCollectionTask = function () {
+	var location = exampleThing.getPropertyValue('LightLocation');
+	location.latitude = 42.295169;
+	location.longitude = -71.214685;
+	location.elevation = 0;
+	exampleThing.setProperty('LightStatus', 'OFF');
+	exampleThing.setProperty('LightLocation', location);
+};
 
 // Bind the thing
 exampleThing.bind();
@@ -39,6 +58,8 @@ exampleThing.bind();
 // Establish a connection to thingworx and invoke the callback
 // when connected
 api.connect();
+
+setInterval(dataCollectionTask, 5000);
 
 // Register for 'connect' events
 api.on('connect', function () {
