@@ -27,7 +27,7 @@ var api = new Api(config);
 api.initialize();
 
 // Create a new thing
-var exampleThing = new Thing('TestThing2');
+var exampleThing = new Thing('HomeLight0');
 
 // List of properties implemmented by exampleThing
 var properties = {
