@@ -14,7 +14,7 @@ var Api = require('thingworx-api').Api;
 var Thing = require('thingworx-api').Thing
 
 // Thingworx Property Monitor
-var PropertyMonitor = require('./lib/property-monitor.js');
+// var PropertyMonitor = require('./lib/property-monitor.js');
 
 // Connection configuration
 var config = require('../config.json');
