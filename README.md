@@ -9,7 +9,6 @@ In order to develop with the framework and run agents you'll need the following 
 | Software | Version | Download Location |
 |----------|---------|-------------------|
 | Node.js  | 4.2.2   | https://nodejs.org/en/download/ |
-| Thingworx C SDK | 1.3 + | https://bitbucket.org/thingworx-ondemand/tw-c-sdk |
 | Python   | 2.7   | https://www.python.org/downloads/release/python-2710/ |
 | C/C++ Compiler | | |
 | Visual Studio | 2012 or 2015 | https://www.visualstudio.com |
@@ -29,10 +28,12 @@ You should have a basic understanding of both Node.js application and module dev
 
 Installation
 ----------------
-To begin the installation process you'll need to download the source from Git.  Note that you'll want to swap _username_ for your actual Bitbucket username.
-``` bash
-git clone https://username@bitbucket.org/thingworx-ondemand/thingworx-nodejs-agent.git
+Clone the agent to your local machine
+
 ```
+git clone https://github.com/ThingworxDevZone/thingworx-nodejs-agent
+```
+
 When finished, you should have a `thingworx-nodejs-agent` directory that will contain the following sub directories:
 
 | Directory Name  | Description |
