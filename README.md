@@ -31,7 +31,7 @@ Installation
 Clone the agent to your local machine
 
 ```
-git clone https://github.com/ThingworxDevZone/thingworx-nodejs-agent
+git clone https://github.com/ThingworxDevZone/thingworx-nodejs-agent.git
 ```
 
 When finished, you should have a `thingworx-nodejs-agent` directory that will contain the following sub directories:
